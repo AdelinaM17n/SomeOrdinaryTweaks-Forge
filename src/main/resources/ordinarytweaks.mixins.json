@@ -5,7 +5,8 @@
   "mixins": [
   ],
   "client": [
-    "ExampleMixin"
+    "MultiPlayerGameModeMixin",
+    "LocalPlayerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

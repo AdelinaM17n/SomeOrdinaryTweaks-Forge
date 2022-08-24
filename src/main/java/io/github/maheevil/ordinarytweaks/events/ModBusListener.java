@@ -1,11 +1,9 @@
 package io.github.maheevil.ordinarytweaks.events;
 
 import io.github.maheevil.ordinarytweaks.SomeOrdinaryTweaksMod;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -30,6 +28,17 @@ public abstract class ModBusListener{
             if (!configMount && !gui.getMinecraft().options.hideGui && gui.shouldDrawSurvivalElements()) {
                 gui.setupOverlayRenderState(true, false);
                 gui.renderFood(screenWidth, screenHeight, poseStack);
+            }
+        });
+
+        registerGuiOverlaysEvent.registerBelowAll("hybrid_jump_meter", (gui, poseStack, partialTick, screenWidth, screenHeight) -> {
+            if (gui.getMinecraft().player.isRidingJumpable() && !gui.getMinecraft().options.hideGui)
+            {
+                gui.setupOverlayRenderState(true, false);
+                if(SomeOrdinaryTweaksMod.config.betterHorseHUD && gui.getMinecraft().options.keyJump.isDown())
+                    gui.renderJumpMeter(poseStack, screenWidth / 2 - 91);
+                else
+                    gui.renderExperience(screenWidth / 2 - 91, poseStack);
             }
         });
     }
