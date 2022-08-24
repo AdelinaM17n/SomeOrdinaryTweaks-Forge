@@ -1,4 +1,4 @@
-package io.github.maheevil.examplemod;
+package io.github.maheevil.ordinarytweaks;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.item.Items;
@@ -14,11 +14,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 @Mod("examplemod")
-public class ExampleMod {
+public class SomeOrdinaryTweaksMod {
 
     public static final Logger LOGGER = LogManager.getLogger();
 
-    public ExampleMod() {
+    public SomeOrdinaryTweaksMod() {
 
         // This is our mod's event bus, used for things like registry or lifecycle events
         IEventBus MOD_BUS = FMLJavaModLoadingContext.get().getModEventBus();
