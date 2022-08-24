@@ -1,11 +1,11 @@
 {
   "required": true,
-  "package": "com.example.examplemod.mixin",
+  "package": "io.github.maheevil.ordinarytweaks.mixin.",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
   ],
   "client": [
-    "io.github.maheevil.examplemod.mixin.ExampleMixin"
+    "ExampleMixin"
   ],
   "injectors": {
     "defaultRequire": 1
