@@ -11,7 +11,6 @@ import org.apache.logging.log4j.Logger;
 
 @Mod("ordinarytweaks")
 public class SomeOrdinaryTweaksMod {
-
     public static final Logger LOGGER = LogManager.getLogger();
     public static ModConfig config;
     public SomeOrdinaryTweaksMod() {
