@@ -39,9 +39,7 @@ public abstract class DeathScreenMixin extends Screen {
     )
     public void render(PoseStack poseStack, int i, int j, float f, CallbackInfo ci){
         if(SomeOrdinaryTweaksMod.config.deathCordsClipBoardButton){
-            assert this.minecraft != null;
-            assert this.minecraft.player != null;
-            String xyz =  minecraft.player.blockPosition().getX() + " / " + minecraft.player.blockPosition().getY() + " / " + minecraft.player.blockPosition().getZ();
+            String xyz = this.minecraft.player.blockPosition().getX() + " / " + minecraft.player.blockPosition().getY() + " / " + minecraft.player.blockPosition().getZ();
             drawCenteredString(poseStack,this.font, xyz, this.width / 2, this.height / 4 + 145, 16777215);
         }
     }
@@ -55,15 +53,19 @@ public abstract class DeathScreenMixin extends Screen {
             )
     )
     protected void init(CallbackInfo ci){
+        String xyz =  this.minecraft.player.blockPosition().getX() + " / " + minecraft.player.blockPosition().getY() + " / " + minecraft.player.blockPosition().getZ();
         if(SomeOrdinaryTweaksMod.config.deathCordsClipBoardButton){
-            assert minecraft != null;
-            assert minecraft.player != null;
-            String xyz =  minecraft.player.blockPosition().getX() + " / " + minecraft.player.blockPosition().getY() + " / " + minecraft.player.blockPosition().getZ();
-            this.exitButtons.add(this.addRenderableWidget(new Button(this.width / 2 - 100, this.height / 4 + 120, 200, 20, Component.translatable("Copy Location To Clipboard"), (buttonx) -> {
-                this.minecraft.keyboardHandler.setClipboard(xyz);
-            })));
-            lastDeathCord = xyz;
+            this.exitButtons.add(
+                    this.addRenderableWidget(
+                            new Button(
+                                    this.width / 2 - 100, this.height / 4 + 120, 200, 20,
+                                    Component.translatable("Copy Location To Clipboard"),
+                                    (buttonx) -> this.minecraft.keyboardHandler.setClipboard(xyz)
+                            )
+                    )
+            );
         }
+        this.lastDeathCord = xyz;
     }
 
     @Inject(
