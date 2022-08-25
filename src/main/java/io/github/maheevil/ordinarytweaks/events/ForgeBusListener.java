@@ -64,7 +64,4 @@ public class ForgeBusListener {
                         )
         );
     }
-
-    //@SubscribeEvent
-    //public static void renderEvent(RenderEvent)
 }
