@@ -10,7 +10,8 @@
     "ClientPacketListenerMixin",
     "LightTextureMixin",
     "GameRendererMixin",
-    "DeathScreenMixin"
+    "DeathScreenMixin",
+    "VanillaGuiOverlayMixin"
   ],
   "injectors": {
     "defaultRequire": 1

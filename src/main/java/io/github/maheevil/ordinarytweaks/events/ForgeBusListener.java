@@ -18,7 +18,7 @@ import net.minecraftforge.fml.common.Mod;
         value = Dist.CLIENT
 )
 public class ForgeBusListener {
-    @SubscribeEvent
+    /*@SubscribeEvent
     public static void renderGuiOverlayEvent(RenderGuiOverlayEvent.Pre overlayEvent){
         String langKey = overlayEvent.getOverlay().id().toShortLanguageKey();
         overlayEvent.setCanceled(
@@ -26,7 +26,7 @@ public class ForgeBusListener {
                 || langKey.equals("mount_health")
                 || langKey.equals("jump_bar")
         );
-    }
+    }*/
 
     @SubscribeEvent
     public static void toastAddEvent(ToastAddEvent toastAddEvent){
