@@ -24,4 +24,4 @@ modId="forge"
 mandatory=true
 versionRange="[43.0.15,)"
 ordering="AFTER"
-side="BOTH"
+side="CLIENT"
