@@ -39,7 +39,7 @@ public abstract class DeathScreenMixin extends Screen {
     )
     public void render(PoseStack poseStack, int i, int j, float f, CallbackInfo ci){
         if(SomeOrdinaryTweaksMod.config.deathCordsClipBoardButton){
-            String xyz = this.minecraft.player.blockPosition().getX() + " / " + minecraft.player.blockPosition().getY() + " / " + minecraft.player.blockPosition().getZ();
+            String xyz = "[X: " + minecraft.player.blockPosition().getX() + "/ Y: " + minecraft.player.blockPosition().getY() + "/ Z: " + minecraft.player.blockPosition().getZ() + "]";
             drawCenteredString(poseStack,this.font, xyz, this.width / 2, this.height / 4 + 145, 16777215);
         }
     }
