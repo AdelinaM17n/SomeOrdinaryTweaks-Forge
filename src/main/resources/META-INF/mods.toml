@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[43.0.15,)"
+loaderVersion = "[43,)"
 license = "GNU LGPL 3.0"
 
 [[mods]]
@@ -19,4 +19,9 @@ versionRange = "[7.0,)"
 ordering = "NONE"
 side = "CLIENT"
 
-
+[[dependencies.ordinarytweaks]]
+modId="forge"
+mandatory=true
+versionRange="[43.0.15,)"
+ordering="AFTER"
+side="BOTH"
