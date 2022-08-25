@@ -10,43 +10,20 @@ version = project.mod_version
 group = project.maven_group
 
 loom {
-    // use this if you are using the official mojang mappings
-    // and want loom to stop warning you about their license
     silentMojangMappingsLicense()
 
-    // since loom 0.10, you are **required** to use the
-    // "forge" block to configure forge-specific features,
-    // such as the mixinConfigs array or datagen
     forge {
-        // specify the mixin configs used in this mod
-        // this will be added to the jar manifest as well!
         mixinConfigs = [
                 "ordinarytweaks.mixins.json"
         ]
 
         accessTransformer("src/main/resources/META-INF/accesstransformer.cfg")
-        // missing access transformers?
-        // don't worry, you can still use them!
-        // note that your AT *MUST* be located at
-        // src/main/resources/META-INF/accesstransformer.cfg
-        // to work as there is currently no config option to change this.
-        // also, any names used in your access transformer will need to be
-        // in SRG mapped ("func_" / "field_" with MCP class names) to work!
-        // (both of these things may be subject to change in the future)
 
-        // this will create a data generator configuration
-        // that you can use to automatically generate assets and data
-        // using architectury loom. Note that this currently *only* works
-        // for forge projects made with architectury loom!
         dataGen {
             mod project.mod_id
         }
     }
 
-    // This allows you to modify your launch configurations,
-    // for example to add custom arguments. In this case, we want
-    // the data generator to check our resources directory for
-    // existing files. (see Forge's ExistingFileHelper for more info)
     launches {
         data {
             arg "--existing", file("src/main/resources").absolutePath
@@ -63,19 +40,13 @@ repositories {
 }
 
 dependencies {
-    // to change the versions see the gradle.properties file
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings loom.layered() {
         officialMojangMappings()
         parchment("org.parchmentmc.data:parchment-1.19.2:2022.08.21")
     }
-    // your forge dependency, this is **required** when using Forge Loom in forge mode!
     forge "net.minecraftforge:forge:${project.forge_version}"
 
-
-    // additional dependencies can be specified using loom's regular format
-    // specifying a "mod" dependency (like modImplementation or modApi)
-    // will cause loom to remap the file to your specified mappings
     modApi("me.shedaniel.cloth:cloth-config-forge:8.0.75")
 }
 
@@ -100,9 +71,6 @@ tasks.withType(JavaCompile) {
 }
 
 java {
-    // Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
-    // if it is present.
-    // If you remove this line, sources will not be generated.
     withSourcesJar()
 }
 
@@ -137,9 +105,6 @@ publishing {
 
     // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
     repositories {
-        // Add repositories to publish to here.
-        // Notice: This block does NOT have the same function as the block in the top level.
-        // The repositories here will be used for publishing your artifact, not for
-        // retrieving dependencies.
+
     }
 }
