@@ -2,6 +2,7 @@ package io.github.maheevil.ordinarytweaks.mixin;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import io.github.maheevil.ordinarytweaks.SomeOrdinaryTweaksMod;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraftforge.client.gui.overlay.ForgeGui;
@@ -30,7 +31,8 @@ public class VanillaGuiOverlayMixin {
             remap = false
     )
     private static void handleLambdaInject(ForgeGui gui, PoseStack poseStack, float partialTicks, int screenWidth, int screenHeight, CallbackInfo info){
-        if(SomeOrdinaryTweaksMod.config.betterHorseHUD && gui.getMinecraft().options.keyJump.isDown() && gui.getMinecraft().player.isRidingJumpable()){
+        Minecraft minecraft = gui.getMinecraft();
+        if(SomeOrdinaryTweaksMod.config.betterHorseHUD && gui.shouldDrawSurvivalElements() && minecraft.options.keyJump.isDown() && minecraft.player.isRidingJumpable()){
             gui.setupOverlayRenderState(true, false);
             gui.renderExperience(screenWidth / 2 - 91, poseStack);
             info.cancel();
