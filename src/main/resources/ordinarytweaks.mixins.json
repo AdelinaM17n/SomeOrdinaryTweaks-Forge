@@ -6,7 +6,11 @@
   ],
   "client": [
     "MultiPlayerGameModeMixin",
-    "LocalPlayerMixin"
+    "LocalPlayerMixin",
+    "ClientPacketListenerMixin",
+    "LightTextureMixin",
+    "GameRendererMixin",
+    "DeathScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1

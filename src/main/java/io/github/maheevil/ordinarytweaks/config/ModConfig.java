@@ -17,6 +17,7 @@ public class ModConfig implements ConfigData {
     public boolean hideRecipeUnlockToasts = false;
     @ConfigEntry.Gui.PrefixText
     public boolean deathCordsClipBoardButton = true;
+    public boolean sendDeathCords = false;
     public boolean disablePortalGUIClosing = false;
     public boolean doNotPlantEdiblesIfHungry = false;
     public boolean noDoubleSlabPlacement = false;
