@@ -56,7 +56,7 @@ public abstract class MultiPlayerGameModeMixin {
             }
 
             if(SomeOrdinaryTweaksMod.config.doNotPlantEdiblesIfHungry
-                    && localPlayer.getFoodData().needsFood()
+                    //&& localPlayer.getFoodData().needsFood()
                     && blockItem.isEdible()
                     && !localPlayer.isSecondaryUseActive())
             {
